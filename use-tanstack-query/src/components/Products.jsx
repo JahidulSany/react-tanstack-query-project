@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const retrieveProducts = async () => {
-  const response = await axios.get('http://localhost:3000/products');
+const retrieveProducts = async ({ queryKey }) => {
+  const response = await axios.get(`http://localhost:3000/${queryKey[0]}`);
   return response.data;
 };
 
-const Products = () => {
+const Products = ({onShow}) => {
   const {
     data: products,
     error,
@@ -14,6 +15,9 @@ const Products = () => {
   } = useQuery({
     queryKey: ['products'],
     queryFn: retrieveProducts,
+    retry: false,
+    // staleTime: 5000,
+    refetchInterval: false,
   });
 
   if (isLoading) return <div>Fetching Products...</div>;
@@ -30,11 +34,12 @@ const Products = () => {
               className="flex flex-col items-center m-2 border rounded-sm"
             >
               <img
-                className="object-cover h-64 w-96 rounded-sm"
+                className="h-64 w-96 rounded-sm"
                 src={product.thumbnail}
                 alt={product.title}
               />
               <p className="text-xl my-3">{product.title}</p>
+              <button className='mb-4' onClick={() => onShow(product.id)}>Show Details</button>
             </li>
           ))}
       </ul>
