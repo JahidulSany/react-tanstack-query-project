@@ -39,7 +39,7 @@ const Products = ({onShow}) => {
                 alt={product.title}
               />
               <p className="text-xl my-3">{product.title}</p>
-              <button className='mb-4' onClick={() => onShow(product.id)}>Show Details</button>
+              <button className='text-orange-600 mb-4' onClick={() => onShow(product.id)}>Show Details</button>
             </li>
           ))}
       </ul>

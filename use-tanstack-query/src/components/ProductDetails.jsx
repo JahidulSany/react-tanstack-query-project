@@ -26,11 +26,11 @@ const ProductDetails = ({ id }) => {
     <div className="w-1/5">
       <div className="fixed">
         <h1 className="text-3xl my-2">Product Details</h1>
-        <div className="text-left border bg-gray-100 p-1 text-md rounded flex flex-col">
+        <div className="w-[250px] p-2 text-left border bg-gray-100 text-md rounded flex flex-col">
           <img
             src={product.thumbnail}
             alt={product.title}
-            className="object-cover h-48 w-48 border rounded-full m-auto"
+            className="object-cover h-36 w-36 border rounded-full m-auto"
           />
           <p className="text-2xl my-2">{product.title}</p>
           <p>{product.description}</p>
