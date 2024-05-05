@@ -34,7 +34,7 @@ const ProductDetails = ({ id }) => {
           />
           <p className="text-2xl my-2">{product.title}</p>
           <p>{product.description}</p>
-          <p className="text-2xl my-2">USD {product.price}</p>
+          <p className="text-2xl my-2">USD ${product.price}</p>
           <p className="text-xl my-2">{product.rating}/5</p>
         </div>
       </div>
